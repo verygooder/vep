@@ -20,7 +20,8 @@ class Vep(object):
         r = requests.get(url, headers=self.headers)
         return self.turn_json(r)
 
-    def turn_json(self, r):
+    @staticmethod
+    def turn_json(r):
         if not r.ok:
             r.raise_for_status()
             sys.exit()
